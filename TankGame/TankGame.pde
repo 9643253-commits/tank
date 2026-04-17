@@ -42,8 +42,19 @@ void keyPressed() {
   }
 }
 void mousePressed() {
-  projectiles.add(new ProjecTile(Maddy.x, Maddy.y, 4, 10));
+  float dx = mouseX - Maddy.x;
+  float dy = mouseY - Maddy.y;
+  float mag = sqrt(dx*dx + dy*dy);
+
+  if (mag > 0) {
+    dx /= mag;
+    dy /= mag;
+
+    float speed = 5;
+    projectiles.add(new ProjecTile(Maddy.x, Maddy.y, dx * speed, dy * speed));
+  }
 }
+
 
 void scorePanel() {
   fill(127, 127);

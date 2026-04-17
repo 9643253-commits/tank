@@ -1,14 +1,19 @@
 class ProjecTile {
   // Member Variable
   float x, y, w, h, speed;
+  float vx, vy;
+  char dir;
 
   //Constuctor
-  ProjecTile (float x, float y, float w, float h) {
+  ProjecTile (float x, float y, float vx, float vy) {
     this.y = y;
     this.x = x;
-    this.h = h;
-    this.w = w;
+    this.vx = vx;
+    this.vy = vy;
+    this.h = 8;
+    this.w = 8;
     speed = 8;
+    dir = 'u';
   }
 
   void display() {
@@ -17,9 +22,7 @@ class ProjecTile {
   }
 
   void move() {
-    y = y - speed;
-    if (x>width) {
-      x = 0;
-    }
+    x += vx;
+    y += vy;
   }
 }
