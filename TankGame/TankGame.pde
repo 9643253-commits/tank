@@ -4,12 +4,15 @@ ArrayList <ProjecTile> projectiles = new ArrayList <ProjecTile>();
 ArrayList <Obstacle> obstacles = new ArrayList <Obstacle>();
 PImage bg;
 int score;
+Timer objTimer;
 
 void setup() {
   size(500, 500);
   bg = loadImage ("bkg.png");
   Maddy = new Tank();
-  obstacles.add(new Obstacle (200, 300, 100, 50, int (random(1, 10)), 10));
+  objTimer= new Timer(1000);
+  objTimer.start();
+  //obstacles.add(new Obstacle (200, 300, 100, 50, int (random(1, 10)), 10));
 }
 
 void draw() {
@@ -20,7 +23,24 @@ void draw() {
     Obstacle o = obstacles.get(i);
     o.display();
     o.move();
+    
+    //Render and detect collision
+    for (int i= 0; i< projectiles.size(); i++) {
+    Projectile p = projectiles.get (i);
+     for (int j= 0; j< obstacles.size(); j++) {
+     Obstacle o = obstacles.get (j);
+     if(p.intersect(o)) {
+    
+
+    //Distribute objects on timer
+    if (objTimer.isFinished()) {
+    }
+    // Add object
+    obstacles.add(new Obstacle (200, 300, 100, 50, int (random(1, 10)), 10));
+    //Restart Timer
+    objTimer.start();
   }
+
   for (int i = 0; i < projectiles.size(); i++) {
     ProjecTile p = projectiles.get(i);
     p.display();
