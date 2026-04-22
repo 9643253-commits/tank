@@ -39,4 +39,8 @@ class Tank {
 
   void fire() {
   }
-}
+boolean intersect (Obstacle o) {
+    float distance = dist (x, y, o.x, o.y) {
+      return true;
+    } else {
+      return false;

@@ -14,7 +14,19 @@ class Obstacle {
     this.health = health;
     idir = 'w';
     obs1 = loadImage("alien.png");
-  }
+    if (int(random (4))==2) {
+      idir = 'w';
+      x = random (width);
+      y = height + 100;
+  } else if (int(random(3))==1) {
+    idir= 'd';
+    x = -100;
+    y = random(height)
+  } else if (int(random(2))==1) {
+      idir = 'a';
+      x = width+100;
+      y = random (height);
+    }
 
   void display() {
     fill(128);
@@ -23,9 +35,7 @@ class Obstacle {
   }
 
   void move() {
-    x=x+speed;
-    if (x>width) {
-      x = 0;
+switch (idir) {
+    }
     }
   }
-}
