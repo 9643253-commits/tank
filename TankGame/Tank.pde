@@ -1,7 +1,9 @@
 class Tank {
+  //Member Variable
   float x, y, w, h, speed, health;
   PImage iTankW, iTankA, iTankS, iTankD;
   char idir;
+  int turretCount,laserCount, healthCount;
 
   // Constructor
   Tank() {
@@ -19,6 +21,9 @@ class Tank {
     idir = 'a';
     idir = 's';
     idir = 'd';
+    turretCount = 1;
+    laserCount = 90;
+    healthCount = 30;
   }
   void display() {
     imageMode(CENTER);
