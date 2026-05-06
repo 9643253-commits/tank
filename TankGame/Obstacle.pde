@@ -5,9 +5,7 @@ class Obstacle {
   char idir;
 
   //Constuctor
-  Obstacle(float x, float y, float w, float h, float speed, float health) {
-    this.y = y;
-    this.x = x;
+  Obstacle(float w, float h, float speed, float health) {
     this.h = h;
     this.w = w;
     this.speed = speed;
@@ -18,24 +16,27 @@ class Obstacle {
       idir = 'w';
       x = random (width);
       y = height + 100;
-  } else if (int(random(3))==1) {
-    idir= 'd';
-    x = -100;
-    y = random(height)
-  } else if (int(random(2))==1) {
+    } else if (int(random(3))==1) {
+      idir= 'd';
+      x = - 100;
+      y = random(height);
+    } else {
       idir = 'a';
-      x = width+100;
+      x = width + 100;
       y = random (height);
     }
+  }
 
   void display() {
     fill(128);
     imageMode(CENTER);
-    image(obs1,x, y);
+    image(obs1, x, y);
   }
-
+  boolean reachedEdge() {
+    return x >= width+150 || x <= -150 || y > height + 150 || y < -150;
+  }
   void move() {
-switch (idir) {
-    }
+    switch (idir) {
     }
   }
+}

@@ -18,6 +18,7 @@ class ProjecTile {
 
   void display() {
     fill(255, 0, 0);
+    rectMode(CENTER);
     rect(x, y, w, h);
   }
 
@@ -33,5 +34,8 @@ class ProjecTile {
     } else {
       return false;
     }
+  }
+  boolean reachedEdge() {
+    return x >= width+150 || x <= -150 || y > height + 150 || y < -150;
   }
 }

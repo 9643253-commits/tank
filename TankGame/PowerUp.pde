@@ -1,14 +1,14 @@
-class PoweUp {
+class PowerUp {
   // member Variable
   float x, y, h, w, speed;
   //PImage obs1;
   char type;
 
   // Constructor
-  PowerUp (float w, float h) {
-    this.h = h;
-    this.w = w;
-    Speed = 5;
+  PowerUp () {
+    h = 100;
+    w = 100;
+    speed = 5;
 
     if (int(random(4))==2) {
       type = 'h';
@@ -45,12 +45,21 @@ class PoweUp {
       text("Turret", x, y);
     }
   }
+  
   void move() {
     y = y + speed;
   }
+  
   boolean reachedEdge() {
-    return x >= width+150 || x< -150||
+    return x >= width+150 || x <= -150 || y > height + 150 || y < -150;
+  }
+
+  boolean intersect(Tank t) {
+    float distance = dist(x, y, t.x, t.y);
+    if (distance < 100) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
-boolean intersect(Tank t) {
-  float distance = dist ()

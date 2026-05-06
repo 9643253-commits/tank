@@ -3,7 +3,7 @@ class Tank {
   float x, y, w, h, speed, health;
   PImage iTankW, iTankA, iTankS, iTankD;
   char idir;
-  int turretCount,laserCount, healthCount;
+  int turretCount, laserCount, healthCount;
 
   // Constructor
   Tank() {
@@ -44,10 +44,17 @@ class Tank {
 
   void fire() {
   }
-  boolean intersect (Obstacle o) {
-    float distance = dist (x, y, o.x, o.y) {
+
+  boolean intersect(Obstacle o) {
+    float distance = dist(x, y, o.x, o.y);
+    if (distance < 100) {
       return true;
     } else {
       return false;
     }
   }
+
+  boolean reachedEdge() {
+    return x >= width+150 || x <= -150 || y > height + 150 || y < -150;
+  }
+}
